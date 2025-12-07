@@ -1,22 +1,35 @@
 """
-This ESP32 MicroPython code was developed by newbiely.com
-This ESP32 MicroPython code is made available for public use without any restriction
-For comprehensive instructions and wiring diagrams, please visit:
-https://newbiely.com/tutorials/esp32-micropython/esp32-micropython-gas-sensor
+Code to activate buzzer and relay when MQ-2 exceeds 550
+ESP32 MicroPython
 """
 
 from machine import ADC, Pin
-import utime  # For timing functions
+import utime
 
-AO_PIN = ADC(Pin(36))  # The ESP32 pin GPIO36 (ADC0) as an analog input pin of the MQ2 gas sensor module
-# Set the ADC width (resolution) to 12 bits
+# --- MQ-2 SENSOR CONFIGURATION ---
+AO_PIN = ADC(Pin(36))       # MQ-2 Analog Input (GPIO36 - ADC1_CH0)
 AO_PIN.width(ADC.WIDTH_12BIT)
-# Set the attenuation to 11 dB, allowing input range up to ~3.3V
 AO_PIN.atten(ADC.ATTN_11DB)
 
+# --- OUTPUT CONFIGURATION ---
+buzzer = Pin(15, Pin.OUT)    # GPIO15
+rele = Pin(5, Pin.OUT)       # GPIO5
+
+# Initially turned off
+buzzer.value(0)
+rele.value(0)
+
+# --- PRINCIPAL LOOP ---
 while True:
-    gas_value = AO_PIN.read()  # Read the analog value (0-4095)
+    gas_value = AO_PIN.read()   # Sensor reading
+    print("MQ-2 Value:", gas_value)
 
-    print(gas_value)  # Print the analog value
+    if gas_value > 550:   # Condition
+        print("High level of contaminants detected. Alarm and extractor activated.")
+        buzzer.value(1)
+        rele.value(1)
+    else:
+        buzzer.value(0)
+        rele.value(0)
 
-    utime.sleep(1)  # Add a small delay to avoid spamming the output
+    utime.sleep(1)
