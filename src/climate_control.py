@@ -12,7 +12,7 @@ sensor = dht.DHT11(Pin(14))
 fan = Pin(5, Pin.OUT)
 
 # TEMPERATURA MAXIMA 
-temp_max = 25 
+temp_max = 30 
 
 while True:
     try:
