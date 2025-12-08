@@ -5,4 +5,3 @@ esptool --port COM6 --baud 460800 write_flash 0x1000 ESP32_GENERIC-20250911-v1.2
 
 ampy --port COM6 put main.py
 ampy --port COM6 put umqtt_simple.py
-ampy --port COM6 put src/main.py

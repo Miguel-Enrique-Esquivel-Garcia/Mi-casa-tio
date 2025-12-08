@@ -8,7 +8,7 @@ client = mqtt.Client(
 
 client.on_message = mycallbacks.on_message
 
-broker = '192.168.0.16'
+broker = '10.70.87.205'
 myport = 1883
 client.connect(broker, port=myport, keepalive=60)
 
