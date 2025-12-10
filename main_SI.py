@@ -7,11 +7,11 @@ from machine import Pin
 from umqtt_simple import MQTTClient
 
 # ===== CONFIGURACIÓN DE RED =====
-WIFI_SSID = "IZZI-8290"
-WIFI_PASSWORD = "F0AF85E78290"
+WIFI_SSID = "Totalplay-2.4G-da18"
+WIFI_PASSWORD = "ruJAFxN7U2SVG5yS"
 
 # ===== CONFIGURACIÓN MQTT =====
-MQTT_BROKER = "192.168.0.16"  # Puedes usar tu propio broker
+MQTT_BROKER = "192.168.100.51"  # Puedes usar tu propio broker
 MQTT_PORT = 1883
 MQTT_CLIENT_ID = "micropython_led"
 MQTT_TOPIC = b"casa/sala/led"
