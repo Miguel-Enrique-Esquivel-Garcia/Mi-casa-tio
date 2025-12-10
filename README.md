@@ -4,7 +4,7 @@ Este documento describe en detalle el funcionamiento, propósito, arquitectura y
 
 El objetivo de este proyecto es proporcionar un modelo educativo, práctico y realista de un sistema domótico, integrando tecnologías de red, lectura de sensores ambientales, activación automática de actuadores y control remoto mediante protocolos IoT modernos.
 
-# 1. Introducción General al Proyecto
+# 🔧 1. Introducción General al Proyecto
 El proyecto Mi-casa-tio representa un sistema domótico completo donde un solo ESP32 opera como unidad central encargada de:
 
 -Recibir órdenes remotas por MQTT.
@@ -15,7 +15,7 @@ El proyecto Mi-casa-tio representa un sistema domótico completo donde un solo E
 
 Este sistema puede ser replicado, ampliado y modificado para clases, prácticas, proyectos académicos o implementaciones experimentales de IoT.
 
-# 2. Requisitos del Hardware
+# 🧰 2. Requisitos del Hardware
 Requisitos del Hardware
 
 -ESP32 (cualquier modelo con ADC y WiFi)
@@ -25,6 +25,7 @@ Requisitos del Hardware
 -Servo SG90 o similar
 -Relevador de 5V
 -Buzzer activo
+-Ventilador de 2" 
 -Fuente de alimentación estable
 -Cables jumpers y protoboard
 
@@ -70,7 +71,7 @@ El LED en el GPIO 21 se conecta al relevador y responde a mensajes:
 -ON → Enciende el LED
 -OFF → Apaga el LED
 
-Esto permite que cualquier aplicación que publique mensajes en el tópico (por ejemplo: Home Assistant, Node-RED, un dashboard web o una app móvil) controle el dispositivo de manera remota.
+Esto permite que cualquier aplicación que publique mensajes en el tópico controle el dispositivo de manera remota.
 
 # 🔊 3.5 Buzzer y Relevador
 Ambos componentes están ligados a eventos críticos:
