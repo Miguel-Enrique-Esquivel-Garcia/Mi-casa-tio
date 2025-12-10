@@ -49,8 +49,8 @@ rain = Pin(4, Pin.IN)              # Sensor de lluvia
 
 servo = PWM(Pin(13), freq=50)      # Servo en GPIO 13 a 50 Hz
 
-OPEN_ANGLE = 0
-CLOSED_ANGLE = 90
+OPEN_ANGLE = 90
+CLOSED_ANGLE = 0
 
 def move_servo(angle):
     # Conversión de ángulo a ciclo de trabajo aproximado
